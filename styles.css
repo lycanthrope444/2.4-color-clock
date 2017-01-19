@@ -1,3 +1,18 @@
 body{
   background-color: yellow;
 }
+
+h1{
+  font-size: 75px;
+  font-family: Verdana;
+  text-align: center;
+}
+
+.hours:after, .minutes:after{
+  content:":";
+  padding-left: 15px;
+}
+
+h1:hover{
+  background-color: red;
+}
