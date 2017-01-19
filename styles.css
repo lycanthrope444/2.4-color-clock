@@ -1,14 +1,24 @@
-body{
-  background-color: yellow;
+#main{
+  height: 150%;
+  width: 100%;
+  background-color: #000000;
 }
 
 h1{
+  color: #FFFFFF;
   font-size: 75px;
   font-family: Verdana;
   text-align: center;
 }
 
-.hours:after, .minutes:after{
+h2{
+  color: #FFFFFF;
+  font-size: 75px;
+  font-family: Verdana;
+  text-align: center;
+}
+
+#hours:after, #minutes:after{
   content:":";
   padding-left: 15px;
 }
