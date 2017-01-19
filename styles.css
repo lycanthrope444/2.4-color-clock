@@ -1,7 +1,31 @@
 #main{
-  height: 150%;
-  width: 100%;
+  display: inline-block;
   background-color: #000000;
+  padding: 50px;
+}
+
+#second{
+  display: inline-block;
+  background-color: #FFFFFF;
+  padding: 50px;
+}
+
+#third{
+  display: inline-block;
+  background-color: #000000;
+  padding: 50px;
+}
+
+#fourth{
+  display: inline-block;
+  background-color: #FFFFFF;
+  padding: 50px;
+}
+
+#last{
+  display: inline-block;
+  background-color: #000000;
+  padding: 50px;
 }
 
 h1{
@@ -21,8 +45,4 @@ h2{
 #hours:after, #minutes:after{
   content:":";
   padding-left: 15px;
-}
-
-h1:hover{
-  background-color: red;
 }

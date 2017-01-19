@@ -4,6 +4,14 @@
 
 var currentTime;
 
+var firstColor = "#";
+
+var secondColor ="#";
+
+var thirdColor ="#";
+
+var fourthColor ="#";
+
 var hexConverter = function(input){
   return input.toString(16);
 };
@@ -25,11 +33,11 @@ var hexHour = function(hour){
 };
 
 var hexMinute = function(minute){
-  return hexConverter(minute);
+  return hexConverter(minute*2);
 };
 
 var hexSecond = function(seconds){
-  return hexConverter(seconds);
+  return hexConverter(seconds*10);
 };
 
 var hexCombined = function(first, second, third){
@@ -38,9 +46,15 @@ var hexCombined = function(first, second, third){
 
 var changeBackground = function(hexColor){
   document.getElementById("main").style.backgroundColor = hexColor;
+  document.getElementById("second").style.backgroundColor = firstColor;
+  document.getElementById("third").style.backgroundColor = secondColor;
+  document.getElementById("fourth").style.backgroundColor = thirdColor;
+  document.getElementById("last").style.backgroundColor = fourthColor;
+  fourthColor = thirdColor;
+  thirdColor = secondColor;
+  secondColor = firstColor;
+  firstColor = hexColor;
 };
-
-console.log("JS ran");
 
 function displayTime(){
   document.getElementById("hours").innerHTML = ("0"+currentHour()).slice(-2);
