@@ -12,6 +12,8 @@ var thirdColor ="#";
 
 var fourthColor ="#";
 
+var barLength;
+
 var hexConverter = function(input){
   return input.toString(16);
 };
@@ -44,6 +46,11 @@ var hexCombined = function(first, second, third){
   return "#" + (("0"+first).slice(-2)) + (("0"+second).slice(-2)) + (("0"+third).slice(-2));
 };
 
+var barMaker = function(fillAmount){
+  document.getElementById("leftBar").style.paddingLeft = fillAmount;
+  document.getElementById("rightBar").style.paddingLeft = fillAmount;
+};
+
 var changeBackground = function(hexColor){
   document.getElementById("main").style.backgroundColor = hexColor;
   document.getElementById("second").style.backgroundColor = firstColor;
@@ -64,11 +71,13 @@ function displayTime(){
 
 var everySecond = setInterval(function() {
   currentTime = new Date();
-  console.log(currentHour(), currentMinute(), currentSecond());
   console.log(hexHour(currentHour()),hexMinute(currentMinute()), hexSecond(currentSecond()));
   console.log(hexCombined(hexHour(currentHour()),hexMinute(currentMinute()),hexSecond(currentSecond())));
+  barLength = currentSecond()+"px";
+  console.log(barLength);
   displayTime();
   changeBackground(hexCombined(hexHour(currentHour()),hexMinute(currentMinute()),hexSecond(currentSecond())));
+  barMaker(barLength);
 }, 1000);
 
 // var timeTransform = document.querySelector("h1");

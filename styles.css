@@ -42,6 +42,24 @@ h2{
   text-align: center;
 }
 
+.barspacer{
+  widows: 100%;  
+}
+
+#leftBar{
+  display: inline;
+  border: 2px solid #FFFFFF;
+  background-color: #FFFFFF;
+  padding-left:0px;
+}
+
+#rightBar{
+  display: inline;
+  border: 2px solid #FFFFFF;
+  background-color: #FFFFFF;
+  padding-left:0px;
+}
+
 #hours:after, #minutes:after{
   content:":";
   padding-left: 15px;
