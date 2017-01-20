@@ -43,18 +43,13 @@ h2{
 }
 
 .barspacer{
-  widows: 100%;  
+  widows: 100%;
 }
 
 #leftBar{
-  display: inline;
-  border: 2px solid #FFFFFF;
-  background-color: #FFFFFF;
-  padding-left:0px;
-}
-
-#rightBar{
-  display: inline;
+  position: relative;
+  align-items: center;
+  display: inline-block;
   border: 2px solid #FFFFFF;
   background-color: #FFFFFF;
   padding-left:0px;

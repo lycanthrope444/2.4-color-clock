@@ -47,8 +47,7 @@ var hexCombined = function(first, second, third){
 };
 
 var barMaker = function(fillAmount){
-  document.getElementById("leftBar").style.paddingLeft = fillAmount;
-  document.getElementById("rightBar").style.paddingLeft = fillAmount;
+  document.getElementById("leftBar").style.width = fillAmount;
 };
 
 var changeBackground = function(hexColor){
@@ -64,33 +63,21 @@ var changeBackground = function(hexColor){
 };
 
 function displayTime(){
-  document.getElementById("hours").innerHTML = ("0"+currentHour()).slice(-2);
-  document.getElementById("minutes").innerHTML = ("0"+currentMinute()).slice(-2);
-  document.getElementById("seconds").innerHTML = ("0"+currentSecond()).slice(-2);
+  document.getElementById("hours").textContent = ("0"+currentHour()).slice(-2);
+  document.getElementById("minutes").textContent = ("0"+currentMinute()).slice(-2);
+  document.getElementById("seconds").textContent = ("0"+currentSecond()).slice(-2);
 }
 
 var everySecond = setInterval(function() {
   currentTime = new Date();
   console.log(hexHour(currentHour()),hexMinute(currentMinute()), hexSecond(currentSecond()));
   console.log(hexCombined(hexHour(currentHour()),hexMinute(currentMinute()),hexSecond(currentSecond())));
-  barLength = currentSecond()+"px";
+  barLength = (currentSecond()/60)*100+"%";
   console.log(barLength);
   displayTime();
   changeBackground(hexCombined(hexHour(currentHour()),hexMinute(currentMinute()),hexSecond(currentSecond())));
   barMaker(barLength);
 }, 1000);
-
-// var timeTransform = document.querySelector("h1");
-//
-//
-// var hexTime = function(/*numericalTime*/){
-//   console.log("Moused Overed!");
-// };
-//
-// timeTransform.addEventListener("mouseover", hexTime());
-
-
-
 
 
 
