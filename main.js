@@ -14,6 +14,10 @@ var fourthColor ="#";
 
 var barLength;
 
+var mouseHover = false;
+
+var hexTime = document.querySelector("H1");
+
 var hexConverter = function(input){
   return input.toString(16);
 };
@@ -39,7 +43,7 @@ var hexMinute = function(minute){
 };
 
 var hexSecond = function(seconds){
-  return hexConverter(seconds*10);
+  return hexConverter(seconds*11);
 };
 
 var hexCombined = function(first, second, third){
@@ -68,15 +72,32 @@ function displayTime(){
   document.getElementById("seconds").textContent = ("0"+currentSecond()).slice(-2);
 }
 
+hexTime.addEventListener("mouseenter", function(){
+  mouseHover = true;
+});
+
+hexTime.addEventListener("mouseout", function(){
+  mouseHover = false;
+});
+
 var everySecond = setInterval(function() {
-  currentTime = new Date();
-  console.log(hexHour(currentHour()),hexMinute(currentMinute()), hexSecond(currentSecond()));
-  console.log(hexCombined(hexHour(currentHour()),hexMinute(currentMinute()),hexSecond(currentSecond())));
-  barLength = (currentSecond()/60)*100+"%";
-  console.log(barLength);
-  displayTime();
-  changeBackground(hexCombined(hexHour(currentHour()),hexMinute(currentMinute()),hexSecond(currentSecond())));
-  barMaker(barLength);
+  if (mouseHover === false){
+    currentTime = new Date();
+    console.log(hexHour(currentHour()),hexMinute(currentMinute()), hexSecond(currentSecond()));
+    console.log(hexCombined(hexHour(currentHour()),hexMinute(currentMinute()),hexSecond(currentSecond())));
+    barLength = (currentSecond()/60)*100+"%";
+    displayTime();
+    changeBackground(hexCombined(hexHour(currentHour()),hexMinute(currentMinute()),hexSecond(currentSecond())));
+    barMaker(barLength);
+  } else {
+    currentTime = new Date();
+    barLength = (currentSecond()/60)*100+"%";
+    document.getElementById("hours").textContent = ("0"+hexHour(currentHour())).slice(-2);
+    document.getElementById("minutes").textContent = ("0"+hexMinute(currentMinute())).slice(-2);
+    document.getElementById("seconds").textContent = ("0"+hexSecond(currentSecond())).slice(-2);
+    changeBackground(hexCombined(hexHour(currentHour()),hexMinute(currentMinute()),hexSecond(currentSecond())));
+    barMaker(barLength);
+  }
 }, 1000);
 
 
